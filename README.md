@@ -19,11 +19,11 @@ Navigate between tiles using a convenient minimap.
 - In-Depth Data Analysis
 View height distribution charts for any selected tiles.
 
-- Customizable Display Options
-  Adjust height exaggeration for enhanced perspective
-  Toggle wireframe mode for structural clarity
-  Switch between smooth and flat shading
-  Minimum height filtering
+- Customizable Display Options  
+Adjust height exaggeration for enhanced perspective
+Toggle wireframe mode for structural clarity
+Switch between smooth and flat shading
+Minimum height filtering
 
 ### Getting Started
 

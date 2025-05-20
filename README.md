@@ -1,4 +1,4 @@
-## Canopy Height Models (CHM) 3D Visualization - chm-3d-visualizer
+## Canopy Height Models (CHM) 3D Visualizer (chm-3d-visualizer)
 A browser-based tool for interactive 3D visualization of canopy height model (CHM) datasets, built entirely in JavaScript. It allows users to load and explore multiple CHM GeoTIFF tiles directly in the browser—no build tools required.  
 
 The visualization leverages Three.js to render GeoTIFF canopy height data as interactive 3D terrain. Each CHM tile is transformed into a detailed 3D mesh, with vertex elevations representing canopy heights and colors mapped along a gradient scale for intuitive interpretation. Seamless navigation between tiles is facilitated by an integrated minimap powered by Leaflet.
@@ -20,10 +20,10 @@ Navigate between tiles using a convenient minimap.
 View height distribution charts for any selected tiles.
 
 - Customizable Display Options
-    - Adjust height exaggeration for enhanced perspective
-    - Toggle wireframe mode for structural clarity
-    - Switch between smooth and flat shading
-    - Minimum height filtering
+    Adjust height exaggeration for enhanced perspective  
+    Toggle wireframe mode for structural clarity  
+    Switch between smooth and flat shading  
+    Minimum height filtering
 
 ### Getting Started
 
@@ -54,5 +54,5 @@ UTM coordinate system (default is zone 11)
 
 ### Acknowledgments
 - This tool is developed as part of the OpenForest4D project funded by NSF awards 2409885, 2409886 & 2409887.
-- CHM data provided by NSF funded [National Ecological Observatory Network] (https://www.neonscience.org/data).
-- three.js https://threejs.org/, geotiff.js https://github.com/geotiffjs/geotiff.js/
+- CHM data provided by NSF funded [National Ecological Observatory Network](https://www.neonscience.org/data).
+- [three.js](https://threejs.org/), [geotiff.js](https://github.com/geotiffjs/geotiff.js/) and other open source libraries.

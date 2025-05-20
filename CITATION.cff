@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Lin"
+  given-names: "Kai"
+title: "Canopy Height Model 3D Visualizer"
+version: 1.0.0
+date-released: 2025-05-20
+url: "https://github.com/OpenForest4D/chm-3d-visualizer"

@@ -1,0 +1,372 @@
+:root {
+    --panel-bg: rgba(33, 37, 41, 0.85);
+    --panel-border: rgba(255, 255, 255, 0.1);
+    --accent-color: #4CAF50;
+    --text-color: #f8f9fa;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body { 
+    margin: 0; 
+    padding: 0; 
+    overflow: hidden; 
+    background-color: #303e4f;
+    font-family: var(--font-main);
+}
+
+canvas { 
+    display: block; 
+}
+
+/* Visualization Container */
+.visualization-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+}
+
+/* Info Panels */
+.info-panel {
+    position: absolute;
+    background: var(--panel-bg);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 12px 15px;
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--panel-border);
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+#info { 
+    bottom: 25px; 
+    left: 25px; 
+    min-width: 180px; 
+}
+
+#colorLegend { 
+    bottom: 25px; 
+    right: 25px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+#errorMessage {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 53, 69, 0.9);
+    max-width: 80%;
+    text-align: center;
+    display: none;
+    padding: 15px 20px;
+}
+
+#loadingMessage {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(33, 37, 41, 0.9);
+    max-width: 80%;
+    text-align: center;
+    padding: 15px 20px;
+}
+
+/* Map Panel */
+#mapPanel {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 300px;
+    height: 160px;
+    background: var(--panel-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--panel-border);
+    z-index: 1000;
+}
+
+#map { 
+    width: 100%; 
+    height: 100%; 
+}
+
+/* Panel Elements */
+.panel-title { 
+    color: var(--accent-color); 
+    font-weight: 600; 
+    margin-bottom: 10px; 
+    font-size: 14px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-row { 
+    display: flex; 
+    margin-bottom: 6px; 
+}
+
+.panel-label { 
+    opacity: 0.7; 
+    min-width: 80px; 
+}
+
+.panel-value { 
+    font-weight: 500; 
+}
+
+/* Gradient Legend */
+#gradientContainer { 
+    width: 200px; 
+    margin-top: 8px; 
+}
+
+#gradientBar { 
+    width: 100%; 
+    height: 12px; 
+    border-radius: 6px; 
+    margin-bottom: 5px; 
+}
+
+#gradientLabels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 11px;
+    opacity: 0.8;
+    position: relative;
+}
+
+#gradientLabels span {
+    position: absolute;
+}
+
+#minHeightLabel { left: 0; }
+#midHeightLabel { left: 60%; transform: translateX(-50%); }
+#maxHeightLabel { right: 0; }
+
+/* Buttons */
+.control-button { 
+    background: rgba(255, 255, 250, 0.1); 
+    border: none; 
+    color: var(--text-color); 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 12px; 
+    cursor: pointer; 
+    transition: background 0.2s; 
+    margin-top: 10px; 
+}
+
+.control-button:hover { 
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+.control-button:disabled {
+    background: rgba(255, 255, 255, 0.05);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Leaflet Overrides */
+.leaflet-popup-content {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    margin: 5px !important;
+    padding-right: 6px !important;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 2px !important;
+}
+
+.leaflet-popup-tip-container {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.leaflet-popup {
+    z-index: 1500 !important;
+}
+
+.leaflet-control-year-select {
+    background: #FFFFFF;
+    border-radius: 3px;
+    padding: 2px;
+    border: 1px solid #D3D3D3;
+}
+
+.leaflet-control-year-select select {
+    background: transparent;
+    color: #333333;
+    border: none;
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: var(--font-main);
+}
+
+.leaflet-control-year-select select:focus {
+    outline: none;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+    font-size: 14px !important;
+    text-align: center !important;
+}
+
+.leaflet-control-zoom a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Dat.GUI Overrides */
+.dg.ac { 
+    position: fixed !important; 
+    top: 10px !important;
+    right: 12px !important; 
+    left: auto !important; 
+    z-index: 1000 !important; 
+}
+
+.dg.main {
+    background: var(--panel-bg) !important;
+    border: 1px solid var(--panel-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    padding: 0 !important;
+}
+
+.dg .c { 
+    color: var(--text-color) !important; 
+}
+
+.dg .cr { 
+    border-left: none !important; 
+}
+
+.dg .property-name { 
+    color: var(--text-color) !important; 
+    font-family: var(--font-main) !important; 
+    font-size: 12px !important; 
+    opacity: 0.7 !important; 
+}
+
+.dg .c input[type="text"], 
+.dg .c input[type="number"] { 
+    background: rgba(255, 255, 255, 0.1) !important; 
+    color: var(--text-color) !important; 
+    border: none !important; 
+    font-family: var(--font-main) !important; 
+    font-size: 12px !important; 
+}
+
+.dg .c input[type="checkbox"] { 
+    accent-color: var(--accent-color) !important; 
+}
+
+.dg .cr.function .property-name { 
+    width: 100% !important; 
+    color: var(--accent-color) !important; 
+    opacity: 1 !important; 
+}
+
+.dg .cr.function:hover { 
+    background: rgba(255, 255, 255, 0.1) !important; 
+}
+
+.dg .close-button { 
+    position: relative !important;
+    background: rgba(255, 255, 255, 0.1) !important; 
+    border-top: none !important; 
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+    color: var(--text-color) !important; 
+    font-family: var(--font-main) !important; 
+    font-size: 12px !important; 
+    text-align: center !important; 
+    padding: 8px !important; 
+    margin-top: 5px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 22px !important;
+}
+
+.dg .close-button:hover { 
+    background: rgba(255, 255, 255, 0.2) !important; 
+}
+
+/* Height Distribution Modal */
+#heightDistributionModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--panel-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--panel-border);
+    padding: 15px;
+    z-index: 2000;
+    display: none;
+    width: 400px;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+#heightDistributionChart {
+    width: 100%;
+    height: 200px !important;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #info, #colorLegend { 
+        max-width: 40%; 
+        font-size: 11px; 
+    }
+    #gradientContainer { 
+        width: 150px; 
+    }
+    #mapPanel { 
+        width: 200px; 
+        height: 150px; 
+    }
+    .dg.ac { 
+        top: 170px !important; 
+    }
+    #heightDistributionModal { 
+        width: 300px; 
+    }
+    #heightDistributionChart { 
+        height: 150px; 
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHM Tiled Visualization - Open Forestry 4D</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="visualization-container">
+        <div id="info" class="info-panel">
+            <div class="panel-title">Canopy Height Model</div>
+            <div class="panel-row">
+                <div class="panel-label">Position:</div>
+                <div class="panel-value" id="coordinates">-</div>
+            </div>
+            <div class="panel-row">
+                <div class="panel-label">Height:</div>
+                <div class="panel-value" id="heightValue">-</div>
+            </div>
+            <div class="panel-row">
+                <div class="panel-label">Tile:</div>
+                <div class="panel-value" id="tileName">-</div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="control-button" id="showHeightDistribution">Show Height Distribution</button>
+                <button class="control-button" id="downloadTile" disabled>Download Tile</button>
+            </div>
+        </div>
+        
+        <div id="colorLegend" class="info-panel">
+            <div class="panel-title">Height (meters)</div>
+            <div id="gradientContainer">
+                <div id="gradientBar"></div>
+                <div id="gradientLabels">
+                    <span id="minHeightLabel">0m</span>
+                    <span id="midHeightLabel">40m</span>
+                    <span id="maxHeightLabel">50m</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="errorMessage" class="info-panel"></div>
+        <div id="loadingMessage" class="info-panel">Loading CHM Data...</div>
+        <div id="mapPanel">
+            <div id="map"></div>
+        </div>
+
+        <div id="heightDistributionModal" class="info-panel">
+            <div class="panel-title">
+                <span>Height Distribution</span>
+                <button class="control-button" id="closeHeightDistribution">Close</button>
+            </div>
+            <div class="modal-content">
+                <canvas id="heightDistributionChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.159.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/geotiff@2.0.7/dist-browser/geotiff.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+    <script src="js/lib/OrbitControls.js"></script>
+    <script src="js/tile_meta_data.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

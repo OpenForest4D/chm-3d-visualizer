@@ -57,5 +57,6 @@ UTM coordinate system (default is zone 11)
 
 ### Acknowledgments
 - This tool is developed as part of the OpenForest4D project funded by NSF awards 2409885, 2409886 & 2409887.
-- CHM data provided by NSF funded [National Ecological Observatory Network](https://www.neonscience.org/data).
+- CHM data from NSF funded [National Ecological Observatory Network](https://www.neonscience.org/data):  
+NEON (National Ecological Observatory Network). Ecosystem structure (DP3.30015.001), RELEASE-2025. https://doi.org/10.48443/jqqd-1n30. Dataset accessed from https://data.neonscience.org/data-products/DP3.30015.001/RELEASE-2025 on June 1, 2025.
 - [three.js](https://threejs.org/), [geotiff.js](https://github.com/geotiffjs/geotiff.js/) and other open source libraries.

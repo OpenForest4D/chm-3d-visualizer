@@ -1,3 +1,7 @@
+[![NSF-1948997](https://img.shields.io/badge/NSF-2409885-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=2409885) [![NSF-2409886](https://img.shields.io/badge/NSF-2409886-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=2409886) [![NSF-2409887](https://img.shields.io/badge/NSF-2409887-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=2409887)
+
+[![GitHub downloads](https://img.shields.io/github/downloads/OpenForest4D/chm-3d-visualizer/total)](https://github.com/OpenForest4D/chm-3d-visualizer/releases)
+
 ## Canopy Height Models (CHM) 3D Visualizer (chm-3d-visualizer)
 A browser-based tool for interactive 3D visualization of canopy height model (CHM) datasets, built entirely in JavaScript. It allows users to load and explore multiple CHM GeoTIFF tiles directly in the browser—no build tools required.  
 
